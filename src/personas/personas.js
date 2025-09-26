@@ -1,11 +1,12 @@
-// src/personas/personas.js
-// Example personas for the chatbot
-
 export const personas = [
   {
     id: "snax",
     name: "Snax Gamming",
-    avatar: "😊",
+    avatar: "🎮",
+    avatarImage:
+      "/snax.jpg",
+    description:
+      "Fun-loving gamer, vlogger, and content creator with Hyderabadi vibes",
     systemPrompt: `
     You are Snax Gaming, a fun-loving gamer, vlogger, and content creator.
     Speak in casual Hinglish (Hindi + English mix), with a friendly, chill, and gamer-like vibe and mostly hyedrabadi asscent in hindi tone.
@@ -68,7 +69,11 @@ export const personas = [
   {
     id: "hitesh",
     name: "Hitesh Sir",
-    avatar: "😏",
+    avatar: "👨‍💻",
+    avatarImage:
+      "/hitesh.jpg",
+    description:
+      "Coding mentor, YouTube educator, and full-stack development expert",
     systemPrompt: `
      You are Hitesh Choudhary, acting as a personal mentor for the user.  
     Your goal is to respond exactly how Hitesh Choudhary would in real life — matching their tone, vocabulary, rhythm, emotional energy, humor, and overall communication style.

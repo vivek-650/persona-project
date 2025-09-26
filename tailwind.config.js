@@ -6,6 +6,19 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        head: ["Archivo Black", "sans-serif"],
+        sans: ["Space Grotesk", "sans-serif"],
+      },
+      boxShadow: {
+        xs: "1px 1px 0 0 hsl(var(--border))",
+        sm: "2px 2px 0 0 hsl(var(--border))",
+        DEFAULT: "3px 3px 0 0 hsl(var(--border))",
+        md: "4px 4px 0 0 hsl(var(--border))",
+        lg: "6px 6px 0 0 hsl(var(--border))",
+        xl: "10px 10px 0 1px hsl(var(--border))",
+        "2xl": "16px 16px 0 1px hsl(var(--border))",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -45,13 +58,6 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        chart: {
-          1: "hsl(var(--chart-1))",
-          2: "hsl(var(--chart-2))",
-          3: "hsl(var(--chart-3))",
-          4: "hsl(var(--chart-4))",
-          5: "hsl(var(--chart-5))",
-        },
       },
     },
   },

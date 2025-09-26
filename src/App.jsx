@@ -1,18 +1,15 @@
 // src/App.jsx
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-
-import PersonaSelector from "./components/PersonaSelector";
-import ChatUI from "./components/ChatUI";
 import { personas } from "./personas/personas";
 import LandingPage from "./pages/LandingPage";
-import { Button } from "@/components/ui/button";
+import ChatPage from "./pages/ChatPage";
 
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  // If coming from /chat with state, use that persona, else default
-  const initialPersonaId = location.state?.personaId || personas[0].id;
+  // Only set persona if explicitly passed, otherwise null
+  const initialPersonaId = location.state?.personaId || null;
   const [selectedPersonaId, setSelectedPersonaId] = useState(initialPersonaId);
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -21,8 +18,12 @@ const App = () => {
   console.log("Current Persona:", currentPersona);
   // Load chat history from localStorage when persona changes
   useEffect(() => {
-    const saved = localStorage.getItem(`chat_history_${selectedPersonaId}`);
-    setMessages(saved ? JSON.parse(saved) : []);
+    if (selectedPersonaId) {
+      const saved = localStorage.getItem(`chat_history_${selectedPersonaId}`);
+      setMessages(saved ? JSON.parse(saved) : []);
+    } else {
+      setMessages([]);
+    }
   }, [selectedPersonaId]);
 
   const handlePersonaSelect = (id) => {
@@ -33,10 +34,12 @@ const App = () => {
 
   // Save chat history
   useEffect(() => {
-    localStorage.setItem(
-      `chat_history_${selectedPersonaId}`,
-      JSON.stringify(messages)
-    );
+    if (selectedPersonaId) {
+      localStorage.setItem(
+        `chat_history_${selectedPersonaId}`,
+        JSON.stringify(messages)
+      );
+    }
   }, [messages, selectedPersonaId]);
 
   const handleSend = async (userInput) => {
@@ -80,10 +83,6 @@ const App = () => {
 
   return (
     <div>
-      {/* Test button to verify Tailwind is working */}
-      <div className="p-4">
-        <Button className="bg-blue-500 hover:bg-blue-700">Test Tailwind Button</Button>
-      </div>
       
       <Routes>
         {/* Landing Page */}
@@ -102,11 +101,11 @@ const App = () => {
           path="/chat"
           element={
             <div className="flex flex-col h-screen">
-              <ChatUI
+              <ChatPage
+                selectedPersonaId={selectedPersonaId}
                 messages={messages}
-                onSend={handleSend}
+                onSendMessage={handleSend}
                 loading={loading}
-                persona={currentPersona}
               />
             </div>
           }
