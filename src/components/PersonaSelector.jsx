@@ -32,8 +32,8 @@ export default function PersonaSelector({ selectedPersonaId, onSelect }) {
           {/* Upcoming Badge */}
           {isUpcoming(persona) && (
             <div className="absolute top-2 right-2 z-10">
-              <span className="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
-                🚀 Upcoming
+              <span className="bg-primary text-black text-xs font-bold px-2 py-1 rounded shadow-sm">
+                Upcoming
               </span>
             </div>
           )}

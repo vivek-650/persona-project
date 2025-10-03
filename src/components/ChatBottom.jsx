@@ -55,12 +55,12 @@ export default function ChatBottom({ onSend, loading, disabled = false }) {
             placeholder={loading ? "" : "Type your message here..."}
             disabled={loading || disabled}
             className="w-full pr-14 sm:pr-16 text-sm sm:text-base placeholder:text-muted-foreground focus:border-primary min-h-[44px]"
-            maxLength={1000}
+            maxLength={200}
           />
           
           {/* Character Counter */}
           <div className="absolute bottom-1 right-3 text-xs text-muted-foreground">
-            {message.length}/1000
+            {message.length}/200
           </div>
         </div>
 
