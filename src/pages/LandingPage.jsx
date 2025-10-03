@@ -1,5 +1,6 @@
 import React from "react";
 import PersonaSelector from "../components/PersonaSelector";
+import Footer from "../components/Footer";
 // import { Button } from "@/components/retroui/Button";
  
 
@@ -26,6 +27,9 @@ const LandingPage = ({ selectedPersonaId, onPersonaSelect }) => {
           onSelect={onPersonaSelect}
         />
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

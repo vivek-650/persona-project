@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ChatHeader from "../components/ChatHeader";
 import ChatBottom from "../components/ChatBottom";
+import Footer from "../components/Footer";
 import { personas } from "../personas/personas";
 // import { Button } from "@/components/retroui/Button";
 
@@ -92,6 +93,9 @@ export default function ChatPage({ selectedPersonaId, messages, onSendMessage, l
         loading={loading}
         disabled={false}
       />
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
