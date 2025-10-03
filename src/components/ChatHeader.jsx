@@ -1,11 +1,15 @@
 import React from 'react';
-
+import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 export default function ChatHeader({ persona }) {
   if (!persona) return null;
 
   return (
-    <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 border-b border-border">
+    <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 border-b-2 border-yellow-300">
       {/* Avatar with Online Status */}
+      <Link to="/" className="text-yellow-300 hover:text-yellow-400 transition-colors">
+        <ArrowLeft />
+      </Link>
       <div className="relative">
         <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-primary bg-card flex items-center justify-center overflow-hidden">
           {persona.avatarImage ? (

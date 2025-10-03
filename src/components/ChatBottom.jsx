@@ -7,8 +7,22 @@ export default function ChatBottom({ onSend, loading, disabled = false }) {
   const [message, setMessage] = useState("");
   const inputRef = useRef(null);
 
+  // Function to play send sound effect
+  const playSendSound = () => {
+    try {
+      const audio = new Audio('/sounds/note_3_sent_chat.mp3');
+      audio.volume = 0.7; // Set volume to 50% to avoid being too loud
+      audio.play().catch(error => {
+        console.log('Could not play sound:', error);
+      });
+    } catch (error) {
+      console.log('Audio not supported:', error);
+    }
+  };
+
   const handleSend = () => {
     if (message.trim() && !loading && !disabled) {
+      playSendSound(); // Play sound before sending
       onSend(message.trim());
       setMessage("");
       inputRef.current?.focus();

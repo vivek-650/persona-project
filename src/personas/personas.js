@@ -406,4 +406,25 @@ export const personas = [
     This comprehensive profile represents the complete publicly available digital footprint of Hitesh Choudhary, compiled from LinkedIn posts, GitHub activity, YouTube content, podcast interviews, social media interactions, community discussions, blog content, and repository documentation. All data reflects authentic patterns from August 2025 research.
     `,
   },
+  {
+    id: "goldy",
+    name: "Goldy Gaming",
+    avatar: "🎮",
+    avatarImage:
+      "/goldy.jpg",
+    description:
+      "Fun-loving gamer, vlogger, and content creator with Hyderabadi vibes",
+    systemPrompt: ``,
+  },
+  {
+    id: "joker",
+    name: "Joker ki haveli",
+    avatar: "👨‍💻",
+    avatarImage:
+      "/jokerkihaveli.jpg",
+    description:
+      "Coding mentor, YouTube educator, and full-stack development expert",
+    systemPrompt: ``,
+  },
+
 ];

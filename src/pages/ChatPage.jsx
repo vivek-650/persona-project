@@ -35,7 +35,7 @@ export default function ChatPage({ selectedPersonaId, messages, onSendMessage, l
   return (
     <div className="min-h-screen bg-black flex flex-col px-4 sm:px-8 md:px-16 lg:px-32 xl:px-60">
       {/* Header */}
-      <ChatHeader persona={currentPersona} />
+      <ChatHeader persona={currentPersona} messages={messages} />
 
       {/* Chat Messages Area */}
       <div className="flex-1 p-2 sm:p-4 overflow-y-auto scrollbar-hide">
@@ -43,7 +43,7 @@ export default function ChatPage({ selectedPersonaId, messages, onSendMessage, l
           {messages.length === 0 ? (
             <div className="text-center text-muted-foreground py-8 sm:py-12">
               <div className="bg-card border-2 border-primary p-4 sm:p-6 md:p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(255,219,51,1)]">
-                <h3 className="text-lg sm:text-xl font-bold mb-2 text-primary font-['Archivo_Black']">GAME START!</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-yellow-400 font-['Archivo_Black']">START CHAT!</h3>
                 <p className="font-['Space_Grotesk'] text-sm sm:text-base">Send a message to begin your adventure with your selected persona.</p>
               </div>
             </div>
